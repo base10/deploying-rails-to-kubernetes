@@ -1,0 +1,30 @@
+---
+- name: Setup datastores
+  hosts: localhost
+  connection: local
+  become: yes
+  tasks:
+  - name: package installation
+    apt:
+      pkg:
+        - postgresql
+        - postgresql-contrib
+        - redis-server
+        - redis
+      state: present
+  - name: run postgres
+    service:
+      name: postgresql
+      enabled: yes
+      state: started
+  - name: run redis
+    service:
+      name: redis-server
+      enabled: yes
+      state: started
+
+  #- name: Add postgres role/password
+  #- name: add privileges to the role
+  #- name: create the database
+  #- name: assign rights to the DB
+  #- stdout info w/ DATABASE_URL and REDIS_URL
