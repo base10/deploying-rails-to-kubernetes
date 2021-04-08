@@ -1,0 +1,3 @@
+---
+- src: easy_install
+- src: postgresql_db

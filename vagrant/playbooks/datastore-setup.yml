@@ -23,8 +23,27 @@
       enabled: yes
       state: started
 
-  #- name: Add postgres role/password
-  #- name: add privileges to the role
-  #- name: create the database
-  #- name: assign rights to the DB
+ - name: Install python packages
+   easy_install:
+     name: psycopg2
+
+ - name: Ensure production DB is present
+   postgresql_db:
+     name: link
+     encoding: UTF8
+     lc_collate: 'en_US.UTF-8'
+     lc_ctype: 'en_US.UTF-8'
+     state: present
+
+  # NB: We're using _unencrypted_ passwords here for visibility/simplicity
+  # See https://docs.ansible.com/ansible/2.8/modules/postgresql_user_module.html
+  # regarding properly hashing passwords
+  # Secondarily, you'll want to more precisely tune your permissions as `priv`
+  - name: Add postgres role/password
+    postgresql_user:
+      name: workshop
+      password: test-password
+      db: link
+      priv: ALL
+
   #- stdout info w/ DATABASE_URL and REDIS_URL

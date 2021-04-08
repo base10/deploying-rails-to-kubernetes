@@ -71,7 +71,11 @@ Vagrant.configure("2") do |config|
     end
 
     datastores.vm.provision "datastore_setup", type: :ansible_local do |ansible|
+      ansible.become = true
       ansible.playbook = "playbooks/datastore-setup.yml"
+      ansible.galaxy_role_file = "playbooks/galaxy_roles.yml"
+      ansible.galaxy_roles_path = "/etc/ansible/roles"
+      ansible.galaxy_command = "sudo ansible-galaxy install community.general community.postgresql"
       ansible.limit = 'all,localhost'
     end
   end
