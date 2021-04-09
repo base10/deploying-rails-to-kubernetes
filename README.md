@@ -76,6 +76,8 @@ The workshop is using [Link](https://github.com/base10/link), a tiny and simple 
 
 At this point, you will download a Vagrant box for Ubuntu 20.04, which will be used to create two virtual machines. Provisioning will take a few minutes.
 
+You may get the error `Unknown configuration section 'disksize' during provisioning. You can resolve this by running `vagrant plugin install vagrant-disksize`.
+
 #### Rerunning provisioning
 
 If provisioning is interrupted or there's a need to update the existing images to take new provisioning instructions into account, from the `vagrant` directory, you can run `vagrant provision`

@@ -37,6 +37,10 @@ Vagrant.configure("2") do |config|
       bash -c 'BASH_ENV=/etc/profile exec bash'
 
       sudo snap install microk8s --classic
+      usermod -aG microk8s vagrant
+
+      echo "alias kubectl='microk8s.kubectl'" > /home/vagrant/.bash_aliases
+      chown vagrant:vagrant /home/vagrant/.bash_aliases
     SHELL
 
     microk8s.vm.provision "system_update", type: :ansible_local do |ansible|
