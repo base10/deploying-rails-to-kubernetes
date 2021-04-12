@@ -15,5 +15,5 @@
   - name: package installation
     apt:
       pkg:
-        - docker-io
+        - docker
       state: present
