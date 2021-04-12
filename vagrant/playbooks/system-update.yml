@@ -16,4 +16,5 @@
     apt:
       pkg:
         - docker
+        - docker.io
       state: present
