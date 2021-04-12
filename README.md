@@ -111,14 +111,6 @@ If you need extra help getting everything installed and running, Alex and/or Nat
 - Friday, April 9: 2 to 5 PM EDT
 - Monday, April 12: 9:30 to 11:00 AM EDT
 
-### Service account set-up
-
-**Forthcoming**
-
-- Heroku to get the initial state of the app up-and-running
-    - Not strictly necessary, but we'll cover it lightly in the first section of the workshop
-- Transactional email
-
 ## Workshop
 
 The workshop runs from 1 pm to 3 pm EDT, April 12. You'll need to be in the RailsConf 2021 Discord server to participate.
