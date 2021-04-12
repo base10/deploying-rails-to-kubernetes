@@ -66,7 +66,7 @@ Granted! We're prioritizing on "easiest path to get up and running". If you want
 
 ### Repository
 
-The workshop is using [Link](https://github.com/base10/link), a tiny and simple Rails application. Please clone that repository and follow Link's set-up instructions to get a local instance of the application running.
+The workshop is using [Link](https://github.com/base10/link), a tiny and simple Rails application. Please fork that repository and follow Link's set-up instructions to get a local instance of the application running.
 
 ### Initialization
 
