@@ -46,12 +46,6 @@ Vagrant.configure("2") do |config|
       ansible.install = :default
       ansible.limit = 'all,localhost'
     end
-
-    microk8s.vm.provision "docker", type: :shell, inline: <<-SHELL
-      sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
-      sudo apt update
-      sudo apt install docker-ce
-    SHELL
   end
 
   ## Box 2: Postgres
