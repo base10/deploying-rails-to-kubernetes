@@ -48,6 +48,12 @@ Vagrant.configure("2") do |config|
       ansible.install = :default
       ansible.limit = 'all,localhost'
     end
+
+    microk8s.vm.provision "docker", type: :shell, inline: <<-SHELL
+      sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+      sudo apt update
+      sudo apt install docker-ce
+    SHELL
   end
 
   ## Box 2: Postgres
@@ -57,6 +63,9 @@ Vagrant.configure("2") do |config|
     datastores.vm.network :private_network, ip: "172.16.100.20"
     datastores.vm.synced_folder vagrant_data_dir, "/vagrant_data"
     datastores.disksize.size = disk
+
+    #datastores.vm.network "forwarded_port", guest: 7379, host: 6379, host_ip: "127.0.0.1"
+    #datastores.vm.network "forwarded_port", guest: 6432, host: 5432, host_ip: "127.0.0.1"
 
     datastores.vm.provider :virtualbox do |vm|
       vm.memory = 1024
@@ -98,7 +107,7 @@ Vagrant.configure("2") do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
+
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on

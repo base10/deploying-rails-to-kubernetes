@@ -12,4 +12,11 @@
   - name: "run aptitude safe-upgrade"
     apt:
       upgrade: yes
-
+  - name: package installation
+    apt:
+      pkg:
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - software-properties-common
+      state: present
