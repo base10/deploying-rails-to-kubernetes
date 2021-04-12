@@ -14,7 +14,6 @@ Vagrant.configure("2") do |config|
   cpus = 1
   disk = "10GB"
   gui = false
-  vagrant_data_dir = "#{ENV['VAGRANT_DATA']}"
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
@@ -24,7 +23,6 @@ Vagrant.configure("2") do |config|
     microk8s.vm.box = box
     microk8s.vm.hostname = "workshop-microk8s.local"
     microk8s.vm.network :private_network, ip: "172.16.100.10"
-    microk8s.vm.synced_folder vagrant_data_dir, "/vagrant_data"
     microk8s.disksize.size = disk
 
     microk8s.vm.provider :virtualbox do |vm|
@@ -61,11 +59,7 @@ Vagrant.configure("2") do |config|
     datastores.vm.box = box
     datastores.vm.hostname = "workshop-datastores.local"
     datastores.vm.network :private_network, ip: "172.16.100.20"
-    datastores.vm.synced_folder vagrant_data_dir, "/vagrant_data"
     datastores.disksize.size = disk
-
-    #datastores.vm.network "forwarded_port", guest: 7379, host: 6379, host_ip: "127.0.0.1"
-    #datastores.vm.network "forwarded_port", guest: 6432, host: 5432, host_ip: "127.0.0.1"
 
     datastores.vm.provider :virtualbox do |vm|
       vm.memory = 1024
