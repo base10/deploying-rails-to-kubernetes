@@ -117,6 +117,14 @@ The workshop runs from 1 pm to 3 pm EDT, April 12. You'll need to be in the Rail
 
 There will be a short break during the workshop.
 
+## Lab Answers
+
+If you're following workshop video asynchronously, these documents correspond to the three labs in the workshop:
+
+- [Lab 1 Answer Key](doc/lab-1-answer-key.md)
+- [Lab 2 Answer Key](doc/lab-2-answer-key.md)
+- [Lab 3 Answer Key](doc/lab-3-answer-key.md)
+
 ## Resources
 
 - [Vagrant Docs](https://learn.hashicorp.com/vagrant)
